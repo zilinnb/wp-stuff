@@ -1,0 +1,352 @@
+/**
+ * WP-Stuff 后台样式 - WordPress原生风格
+ */
+
+/* 表单基本样式 */
+.wp-stuff-form {
+    max-width: 100%;
+    margin: 15px 0;
+}
+
+/* 应用 WordPress 原生样式 */
+.wp-stuff-form .form-table th {
+    width: 200px;
+    font-weight: 600;
+}
+
+.wp-stuff-form .form-table .regular-text {
+    width: 25em;
+}
+
+/* 评分星星样式 */
+.wp-stuff-rating-stars {
+    display: flex;
+    font-size: 24px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.wp-stuff-rating-stars span {
+    color: #ccc;
+    margin-right: 8px;
+    transition: color 0.2s;
+}
+
+.wp-stuff-rating-stars span.active,
+.wp-stuff-rating-stars span:hover {
+    color: #ffb900;
+}
+
+/* 图片预览区域 */
+.wp-stuff-image-container {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.wp-stuff-image-preview {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f9f9f9;
+    position: relative;
+}
+
+.wp-stuff-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.wp-stuff-no-image-placeholder {
+    color: #888;
+    font-size: 12px;
+}
+
+/* 按钮组样式 */
+.wp-stuff-image-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 提示信息区域 */
+.wp-stuff-tips {
+    margin-top: 20px;
+}
+
+.wp-stuff-tips .inside {
+    padding: 10px 12px;
+}
+
+.wp-stuff-tips ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.wp-stuff-tips li {
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* 短代码复制按钮样式 */
+.wp-stuff-shortcode-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 250px;
+}
+
+.wp-stuff-shortcode-field {
+    flex-grow: 1;
+    margin-right: 5px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+    background: #f6f7f7;
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.wp-stuff-copy-btn {
+    padding: 2px 8px !important;
+    height: auto !important;
+}
+
+.wp-stuff-copy-btn.copied {
+    background: #46b450 !important;
+    border-color: #46b450 !important;
+    color: #fff !important;
+}
+
+/* 短代码显示样式 */
+.wp-stuff-shortcode-display {
+    text-align: center;
+    padding: 0;
+    position: relative;
+}
+
+.wp-stuff-shortcode-display.copied::after {
+    content: "已复制!";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #46b450;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    animation: fadeOut 1s ease-in-out;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* 自定义列样式 */
+.column-thumbnail {
+    width: 60px !important;
+    padding: 8px 5px !important;
+}
+
+.column-thumbnail img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ID列样式 */
+.column-id {
+    width: 60px !important;
+    text-align: center !important;
+    padding: 8px 10px !important;
+    font-weight: 500;
+}
+
+/* 评分列样式 */
+.column-rating {
+    width: 75px !important;
+    padding: 8px 5px !important;
+}
+
+.wp-stuff-stars {
+    display: flex;
+    line-height: 1;
+}
+
+.wp-stuff-stars .star {
+    color: #ddd;
+    font-size: 12px;
+    margin-right: -1px;
+}
+
+.wp-stuff-stars .star.filled {
+    color: #ffb900;
+}
+
+.column-price {
+    width: 65px !important;
+    padding: 8px 5px !important;
+}
+
+/* 标题列样式 */
+.column-title {
+    width: auto !important;
+}
+
+.column-category {
+    width: 15% !important;
+    padding: 8px 5px !important;
+}
+
+/* 短代码列样式 */
+.column-shortcode_btn {
+    width: 110px !important;
+    text-align: center !important;
+    padding: 8px 5px !important;
+}
+
+/* 日期列样式 */
+.column-date {
+    width: 10% !important;
+    padding: 8px 10px !important;
+}
+
+.no-thumbnail {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f1;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #999;
+}
+
+/* 短代码代码样式 */
+.wp-stuff-code-style {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 12px;
+    padding: 3px 5px;
+    background-color: #f0f2f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #d63638;
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    line-height: 1.4;
+    vertical-align: middle;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07) inset;
+    transition: all 0.2s ease;
+}
+
+.wp-stuff-code-style:hover, .wp-stuff-code-style:focus {
+    background-color: #f7f7f7;
+    border-color: #999;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* NA 样式 */
+.na {
+    color: #999;
+    font-style: italic;
+}
+
+/* 手机端优化 */
+@media screen and (max-width: 782px) {
+    /* 确保复选框列和标题列在手机上保持显示 */
+    .column-cb, .column-title, .column-shortcode_btn {
+        display: table-cell !important;
+    }
+    
+    /* 短代码按钮列宽度调整 */
+    .column-shortcode_btn {
+        width: 80px !important;
+        padding: 8px 5px !important;
+    }
+    
+    /* 短代码按钮在手机上的样式 */
+    .wp-stuff-view-shortcode {
+        font-size: 11px !important;
+        padding: 0px 5px !important;
+        min-height: 24px !important;
+        line-height: 22px !important;
+    }
+    
+    /* 确保下拉菜单更好地适应移动设备 */
+    .wp-admin select {
+        height: 34px;
+    }
+}
+
+/* 适配WordPress深色模式 */
+.admin-color-modern .wp-stuff-image-preview,
+.admin-color-light .wp-stuff-image-preview,
+.admin-color-midnight .wp-stuff-image-preview {
+    background: #2c2c2c;
+    border-color: #3c3c3c;
+}
+
+.admin-color-modern .wp-stuff-no-image-placeholder,
+.admin-color-light .wp-stuff-no-image-placeholder,
+.admin-color-midnight .wp-stuff-no-image-placeholder {
+    color: #888;
+}
+
+/* 调整列间距 - 让短代码与日期更分开 */
+.wp-admin table.wp-list-table .column-date {
+    padding-left: 15px !important;
+}
+
+/* 让短代码列与分类列更接近 */
+.wp-admin table.wp-list-table .column-shortcode {
+    padding-left: 5px !important;
+}
+
+/* 短代码查看按钮样式 */
+.wp-stuff-view-shortcode {
+    background: #f0f0f1;
+    border-color: #ddd;
+    color: #464646;
+    font-size: 12px;
+    padding: 1px 8px;
+    min-height: 26px;
+    line-height: 24px;
+    border-radius: 3px;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.wp-stuff-view-shortcode:hover {
+    background: #f7f7f7;
+    border-color: #999;
+    color: #000;
+}
+
+/* 取消"添加新好物"按钮上的项目符号 */
+.page-title-action {
+    margin-left: 5px !important;
+}
+
+/* 隐藏标题提示文本 */
+body.post-type-wp_stuff #title-prompt-text {
+    display: none !important;
+} 

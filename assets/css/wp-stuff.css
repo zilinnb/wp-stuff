@@ -1,0 +1,653 @@
+/**
+ * WP-Stuff 前端样式 - 简约扁平无阴影风格
+ */
+
+/* 网格布局 - 确保每行显示两个物品 */
+.wp-stuff-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* 物品样式 - 无卡片无阴影设计 */
+.wp-stuff-item {
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    will-change: opacity, transform;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+/* 物品链接样式 */
+.wp-stuff-item-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 物品图片区域 */
+.wp-stuff-item-image-wrapper {
+    position: relative;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    aspect-ratio: 1 / 0.7; /* 使用aspect-ratio确保所有图片区域都有相同比例 */
+}
+
+.wp-stuff-item-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 确保图片填充整个区域 */
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.wp-stuff-item-image-wrapper:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.wp-stuff-no-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wp-stuff-no-image:after {
+    content: '无图片';
+    color: #999;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+/* 物品内容样式 - 扁平无阴影 */
+.wp-stuff-item-content {
+    padding: 8px 0;
+}
+
+.wp-stuff-item-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease; /* 标题颜色过渡 */
+}
+
+.wp-stuff-item:hover .wp-stuff-item-title {
+    color: #3b3eff; /* 悬停时标题变色，增加交互感 */
+}
+
+/* 描述样式 */
+.wp-stuff-item-description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.brand-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    object-fit: contain;
+}
+
+.description-text {
+    font-size: 13px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* 评分与价格样式 */
+.wp-stuff-item-rating {
+    margin-bottom: 8px;
+}
+
+.wp-stuff-item-rating .star {
+    color: #ddd;
+    font-size: 13px;
+}
+
+.wp-stuff-item-rating .star.filled {
+    color: #ffb800;
+}
+
+/* 物品信息区域 */
+.wp-stuff-item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.wp-stuff-item-price {
+    font-weight: 500;
+    color: #ff2d55;
+    font-size: 14px;
+    display: inline-block;
+    padding: 3px 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.wp-stuff-item-purchase-date {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+/* 分类展示 - 精美简约风格 */
+.wp-stuff-categories-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0 30px;
+    justify-content: flex-start;
+    padding: 15px 0;
+    position: relative;
+}
+
+.wp-stuff-categories-horizontal:before,
+.wp-stuff-categories-horizontal:after {
+    display: none;
+}
+
+.wp-stuff-category-container {
+    margin: 0;
+}
+
+.wp-stuff-category-item {
+    display: inline-block;
+    background-color: #f9f9f9;
+    color: #555;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    font-weight: normal;
+    border: none;
+}
+
+.wp-stuff-category-item:hover {
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+.wp-stuff-category-item.active {
+    background-color: #3b3eff;
+    color: white;
+    font-weight: normal;
+}
+
+.wp-stuff-category-item .count {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-left: 4px;
+    font-weight: 300;
+    background-color: rgba(255,255,255,0.3);
+    padding: 1px 5px;
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.wp-stuff-category-item.active .count {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+/* 深色模式调整 */
+@media (prefers-color-scheme: dark) {
+    /* 物品卡片深色模式调整 */
+    .wp-stuff-item {
+        background-color: transparent;
+    }
+    
+    .wp-stuff-item-title {
+        color: #f0f0f0 !important;
+    }
+    
+    .wp-stuff-item:hover .wp-stuff-item-title {
+        color: #7f7fff !important; /* 深色下悬停色调整，更亮一些 */
+    }
+    
+    .wp-stuff-item-image-wrapper {
+        background-color: #1c1c1c !important;
+    }
+    
+    .wp-stuff-item-image-wrapper img {
+        background-color: #1c1c1c !important;
+        filter: brightness(0.85); /* 图片暗色处理 */
+    }
+    
+    .wp-stuff-no-image {
+        background-color: #1c1c1c !important;
+    }
+    
+    .wp-stuff-no-image:after {
+        color: #888;
+    }
+    
+    .description-text {
+        color: #bbb;
+    }
+    
+    .wp-stuff-item-rating .star {
+        color: #555;
+    }
+    
+    .wp-stuff-item-rating .star.filled {
+        color: #ffb800;
+    }
+    
+    .wp-stuff-category-item {
+        background-color: #333;
+        color: #ddd;
+    }
+    
+    .wp-stuff-category-item:hover {
+        background-color: #444;
+        color: #fff;
+    }
+    
+    .wp-stuff-category-item.active {
+        background-color: #3b3eff;
+        color: #fff;
+    }
+    
+    /* 添加价格颜色调整 */
+    .wp-stuff-item-price {
+        color: #ff6b8b !important;
+    }
+    
+    /* 购买日期暗色模式 */
+    .wp-stuff-item-purchase-date {
+        color: #999 !important;
+    }
+    
+    /* 品牌图标适配暗色模式 */
+    .brand-logo {
+        filter: brightness(0.9) contrast(0.9);
+    }
+}
+
+/* 针对使用wp-stuff-dark-mode类的主题 */
+body.wp-stuff-dark-mode .wp-stuff-item-title {
+    color: #f0f0f0 !important;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-item:hover .wp-stuff-item-title {
+    color: #7f7fff !important;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-item-image-wrapper {
+    background-color: #1c1c1c !important;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-item-image-wrapper img {
+    background-color: #1c1c1c !important;
+    filter: brightness(0.85); /* 图片暗色处理 */
+}
+
+body.wp-stuff-dark-mode .wp-stuff-no-image {
+    background-color: #1c1c1c !important;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-no-image:after {
+    color: #888;
+}
+
+body.wp-stuff-dark-mode .description-text {
+    color: #bbb;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-category-item {
+    background-color: #333;
+    color: #ddd;
+}
+
+body.wp-stuff-dark-mode .wp-stuff-item-price {
+    color: #ff6b8b;
+}
+
+body.wp-stuff-dark-mode .brand-logo {
+    filter: brightness(0.9) contrast(0.9);
+}
+
+/* 兼容WordPress主题自定义的深色模式 */
+html[data-theme="dark"] .wp-stuff-item-title,
+body.dark-mode .wp-stuff-item-title,
+body.darkmode .wp-stuff-item-title,
+body.dark-theme .wp-stuff-item-title,
+.theme-dark .wp-stuff-item-title {
+    color: #f0f0f0 !important;
+}
+
+html[data-theme="dark"] .wp-stuff-item:hover .wp-stuff-item-title,
+body.dark-mode .wp-stuff-item:hover .wp-stuff-item-title,
+body.darkmode .wp-stuff-item:hover .wp-stuff-item-title,
+body.dark-theme .wp-stuff-item:hover .wp-stuff-item-title,
+.theme-dark .wp-stuff-item:hover .wp-stuff-item-title {
+    color: #6e6eff !important;
+}
+
+html[data-theme="dark"] .wp-stuff-item-image-wrapper,
+body.dark-mode .wp-stuff-item-image-wrapper,
+body.darkmode .wp-stuff-item-image-wrapper,
+body.dark-theme .wp-stuff-item-image-wrapper,
+.theme-dark .wp-stuff-item-image-wrapper {
+    background-color: #1c1c1c !important;
+}
+
+html[data-theme="dark"] .wp-stuff-item-image-wrapper img,
+body.dark-mode .wp-stuff-item-image-wrapper img,
+body.darkmode .wp-stuff-item-image-wrapper img,
+body.dark-theme .wp-stuff-item-image-wrapper img,
+.theme-dark .wp-stuff-item-image-wrapper img {
+    background-color: #1c1c1c !important;
+}
+
+html[data-theme="dark"] .wp-stuff-no-image,
+body.dark-mode .wp-stuff-no-image,
+body.darkmode .wp-stuff-no-image,
+body.dark-theme .wp-stuff-no-image,
+.theme-dark .wp-stuff-no-image {
+    background-color: #1c1c1c !important;
+}
+
+html[data-theme="dark"] .description-text,
+body.dark-mode .description-text,
+body.darkmode .description-text,
+body.dark-theme .description-text,
+.theme-dark .description-text {
+    color: #bbb;
+}
+
+html[data-theme="dark"] .wp-stuff-category-item,
+body.dark-mode .wp-stuff-category-item,
+body.darkmode .wp-stuff-category-item,
+body.dark-theme .wp-stuff-category-item,
+.theme-dark .wp-stuff-category-item {
+    background-color: #333;
+    color: #ddd;
+}
+
+html[data-theme="dark"] .wp-stuff-category-item:hover,
+body.dark-mode .wp-stuff-category-item:hover,
+body.darkmode .wp-stuff-category-item:hover,
+body.dark-theme .wp-stuff-category-item:hover,
+.theme-dark .wp-stuff-category-item:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* 更强的图片暗色模式兼容 */
+@media (prefers-color-scheme: dark) {
+    .wp-stuff-item-image-wrapper img {
+        filter: brightness(0.85);
+    }
+    
+    /* 悬停时亮度调整 */
+    .wp-stuff-item-image-wrapper:hover img {
+        filter: brightness(0.95) contrast(1.1);
+    }
+}
+
+/* 为所有暗色模式类型添加图片处理 */
+body.wp-stuff-dark-mode .wp-stuff-item-image-wrapper img {
+    filter: brightness(0.85);
+}
+
+body.wp-stuff-dark-mode .wp-stuff-item-image-wrapper:hover img {
+    filter: brightness(0.95) contrast(1.1);
+}
+
+html[data-theme="dark"] .wp-stuff-item-image-wrapper img,
+.dark-mode .wp-stuff-item-image-wrapper img,
+.dark-theme .wp-stuff-item-image-wrapper img,
+.night-mode .wp-stuff-item-image-wrapper img,
+.dark .wp-stuff-item-image-wrapper img {
+    filter: brightness(0.85);
+}
+
+html[data-theme="dark"] .wp-stuff-item-image-wrapper:hover img,
+.dark-mode .wp-stuff-item-image-wrapper:hover img,
+.dark-theme .wp-stuff-item-image-wrapper:hover img,
+.night-mode .wp-stuff-item-image-wrapper:hover img,
+.dark .wp-stuff-item-image-wrapper:hover img {
+    filter: brightness(0.95) contrast(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .wp-stuff-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .wp-stuff-item-content {
+        padding: 6px 0;
+    }
+    
+    .wp-stuff-item-title {
+        font-size: 14px;
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .wp-stuff-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .wp-stuff-item-content {
+        padding: 6px 0;
+    }
+    
+    .wp-stuff-category-item {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+
+/* 加载状态 */
+.wp-stuff-grid.loading {
+    position: relative;
+    min-height: 200px;
+}
+
+.wp-stuff-grid.loading:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 2px solid #f0f0f0;
+    border-top-color: #3b3eff;
+    border-radius: 50%;
+    animation: wp-stuff-spin 0.6s linear infinite;
+}
+
+@keyframes wp-stuff-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 无内容提示 */
+.wp-stuff-no-items {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* 深色模式下的无内容提示 */
+@media (prefers-color-scheme: dark) {
+    .wp-stuff-no-items {
+        background-color: #2c2c2c;
+        color: #bbb;
+    }
+}
+
+html[data-theme="dark"] .wp-stuff-no-items,
+body.dark-mode .wp-stuff-no-items,
+body.darkmode .wp-stuff-no-items,
+body.dark-theme .wp-stuff-no-items,
+.theme-dark .wp-stuff-no-items {
+    background-color: #2c2c2c;
+    color: #bbb;
+}
+
+/* 针对无链接项目的样式 */
+.wp-stuff-item.no-link {
+    cursor: default;
+}
+
+.wp-stuff-item.no-link .wp-stuff-item-link {
+    pointer-events: none;
+}
+
+/* 响应式样式 */
+@media screen and (max-width: 768px) {
+    .wp-stuff-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wp-stuff-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+}
+
+/* 全面覆盖深色模式样式 */
+html.wp-stuff-dark-mode .wp-stuff-item-title,
+html.dark-mode .wp-stuff-item-title,
+html.dark-theme .wp-stuff-item-title,
+html.night-mode .wp-stuff-item-title,
+html[data-dark-mode="true"] .wp-stuff-item-title,
+html[data-theme="dark"] .wp-stuff-item-title,
+body.wp-stuff-dark-mode .wp-stuff-item-title {
+    color: #f0f0f0 !important;
+}
+
+html.wp-stuff-dark-mode .wp-stuff-item:hover .wp-stuff-item-title,
+html.dark-mode .wp-stuff-item:hover .wp-stuff-item-title,
+html.dark-theme .wp-stuff-item:hover .wp-stuff-item-title,
+html.night-mode .wp-stuff-item:hover .wp-stuff-item-title,
+html[data-dark-mode="true"] .wp-stuff-item:hover .wp-stuff-item-title,
+html[data-theme="dark"] .wp-stuff-item:hover .wp-stuff-item-title,
+body.wp-stuff-dark-mode .wp-stuff-item:hover .wp-stuff-item-title {
+    color: #7f7fff !important;
+}
+
+html.wp-stuff-dark-mode .description-text,
+html.dark-mode .description-text,
+html.dark-theme .description-text,
+html.night-mode .description-text,
+html[data-dark-mode="true"] .description-text,
+html[data-theme="dark"] .description-text,
+body.wp-stuff-dark-mode .description-text {
+    color: #bbb !important;
+}
+
+html.wp-stuff-dark-mode .wp-stuff-item-price,
+html.dark-mode .wp-stuff-item-price,
+html.dark-theme .wp-stuff-item-price,
+html.night-mode .wp-stuff-item-price,
+html[data-dark-mode="true"] .wp-stuff-item-price,
+html[data-theme="dark"] .wp-stuff-item-price,
+body.wp-stuff-dark-mode .wp-stuff-item-price {
+    color: #ff6b8b !important;
+}
+
+html.wp-stuff-dark-mode .brand-logo,
+html.dark-mode .brand-logo,
+html.dark-theme .brand-logo,
+html.night-mode .brand-logo,
+html[data-dark-mode="true"] .brand-logo,
+html[data-theme="dark"] .brand-logo,
+body.wp-stuff-dark-mode .brand-logo {
+    filter: brightness(0.9) contrast(0.9);
+}
+
+html.wp-stuff-dark-mode .wp-stuff-item-purchase-date,
+html.dark-mode .wp-stuff-item-purchase-date,
+html.dark-theme .wp-stuff-item-purchase-date,
+html.night-mode .wp-stuff-item-purchase-date,
+html[data-dark-mode="true"] .wp-stuff-item-purchase-date,
+html[data-theme="dark"] .wp-stuff-item-purchase-date,
+body.wp-stuff-dark-mode .wp-stuff-item-purchase-date {
+    color: #999 !important;
+}
+
+/* 暗色模式强制覆盖 */
+@media (prefers-color-scheme: dark) {
+    .wp-stuff-item-title {
+        color: #f0f0f0 !important;
+    }
+    
+    .wp-stuff-item:hover .wp-stuff-item-title {
+        color: #7f7fff !important;
+    }
+    
+    .description-text {
+        color: #bbb !important;
+    }
+    
+    .wp-stuff-item-price {
+        color: #ff6b8b !important;
+    }
+    
+    .brand-logo {
+        filter: brightness(0.9) contrast(0.9) !important;
+    }
+    
+    /* 强制处理图片 */
+    .wp-stuff-item-image-wrapper {
+        background-color: #1c1c1c !important;
+    }
+    
+    .wp-stuff-no-image {
+        background-color: #1c1c1c !important;
+    }
+    
+    .wp-stuff-item-image-wrapper img {
+        filter: brightness(0.85) !important;
+    }
+    
+    .wp-stuff-item-image-wrapper:hover img {
+        filter: brightness(0.95) contrast(1.1) !important;
+    }
+    
+    .wp-stuff-item-purchase-date {
+        color: #999 !important;
+    }
+} 
