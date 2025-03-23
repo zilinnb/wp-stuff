@@ -63,5 +63,5 @@ WP-Stuff的设计自动适应您的主题样式，包括支持夜间模式。如
 ## 作者信息
 
 - 作者：Fuleo
-- 网站：[https://fuleo.net](https://fuleo.net)
+- 网站：[https://fuleo.net/archives/231.html](https://fuleo.net/archives/231.html)
 - 版本：1.0.0
